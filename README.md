@@ -2,43 +2,138 @@
 
 <p style="text-align: center">
   <a href="https://choosealicense.com/licenses/mit">
-  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
- </a>
- <img src="https://img.shields.io/github/actions/workflow/status/magicmirrororg/magicmirror/automated-tests.yaml" alt="GitHub Actions">
- <img src="https://img.shields.io/github/check-runs/magicmirrororg/magicmirror/master" alt="Build Status">
- <a href="https://github.com/MagicMirrorOrg/MagicMirror">
-  <img src="https://img.shields.io/github/stars/magicmirrororg/magicmirror?style=social" alt="GitHub Stars">
- </a>
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+  </a>
+  <img src="https://img.shields.io/github/actions/workflow/status/magicmirrororg/magicmirror/automated-tests.yaml" alt="GitHub Actions">
+  <img src="https://img.shields.io/github/check-runs/magicmirrororg/magicmirror/master" alt="Build Status">
+  <a href="https://github.com/tecsantoshkumar/MagicMirror">
+    <img src="https://img.shields.io/github/stars/tecsantoshkumar/MagicMirror?style=social" alt="GitHub Stars">
+  </a>
 </p>
 
-**MagicMirror²** is an open source modular smart mirror platform. With a growing list of installable modules, **MagicMirror²** allows you to turn your Raspberry Pi-powered mirror into a personal assistant, displaying news, weather, calendar events, and more. **MagicMirror²** is built by the creator of [the original MagicMirror](https://michaelteeuw.nl/tagged/magicmirror) with the help of a [growing community of contributors](https://github.com/MagicMirrorOrg/MagicMirror/graphs/contributors).
+**MagicMirror²** is an open source modular smart mirror platform. With a growing list of installable modules, **MagicMirror²** allows you to turn your Raspberry Pi-powered mirror into a personal assistant, displaying news, weather, calendar events, and more. **MagicMirror²** is built by the creator of [the original MagicMirror](https://michaelteeuw.nl/tagged/magicmirror) with the help of a [growing community of contributors](https://github.com/tecsantoshkumar/MagicMirror/graphs/contributors).
 
 MagicMirror² focuses on a modular plugin system and runs on **Raspberry Pi** using [Electron](https://www.electronjs.org/) as an application wrapper. No web server or browser installation is necessary—just boot your Pi and start your smart mirror!
 
-## Raspberry Pi Documentation
+---
 
-For full installation and setup instructions on Raspberry Pi, including **hardware setup**, **OS configuration**, and **module installation**, visit our dedicated documentation site: [https://docs.magicmirror.builders/getting-started/installation.html](https://docs.magicmirror.builders/getting-started/installation.html).
+## Raspberry Pi Installation & Setup
 
-### Quick Links
+Follow these commands to install and start MagicMirror on Raspberry Pi or Ubuntu:
 
-- Official Website: [https://magicmirror.builders](https://magicmirror.builders)
-- Documentation: [https://docs.magicmirror.builders](https://docs.magicmirror.builders)
-- Forum: [https://forum.magicmirror.builders](https://forum.magicmirror.builders)
-  - Technical discussions (Raspberry Pi category): <https://forum.magicmirror.builders/category/11/core-system>
-- Discord: [https://discord.gg/J5BAtvx](https://discord.gg/J5BAtvx)
-- Blog: [https://michaelteeuw.nl/tagged/magicmirror](https://michaelteeuw.nl/tagged/magicmirror)
-- Donations: [https://magicmirror.builders/#donate](https://magicmirror.builders/#donate)
+### 1️⃣ Clone your fork
 
-## Contributing Guidelines
+```
+git clone https://github.com/tecsantoshkumar/MagicMirror.git magic-mirror
+cd MagicMirror
+```
 
-Contributions are welcome in all forms, not just code! Help us improve MagicMirror² on Raspberry Pi with:
+### 2️⃣ Clean old modules (if reinstalling)
 
-- Bug reports
-- Documentation improvements
-- Translations
+```
+rm -rf node_modules package-lock.json
+```
 
-For full contributing guidelines, visit: [https://docs.magicmirror.builders/about/contributing.html](https://docs.magicmirror.builders/about/contributing.html)
+### 3️⃣ Install dependencies
 
-## Support Raspberry Pi MagicMirror²
+```
+npm install
+```
 
-MagicMirror² is Open Source and free, but running and maintaining it requires resources. Donations help cover costs like server hosting, development time, and ongoing improvements. Consider donating if you enjoy your Raspberry Pi-powered smart mirror!
+### 4️⃣ Copy sample config to create your own
+
+```
+cp config/config.js.sample config/config.js
+```
+
+### 5️⃣ Edit config.js for your location and preferences
+
+```
+nano config/config.js
+```
+
+### config.js
+
+```
+let config = {
+    address: "localhost",
+    port: 8080,
+    basePath: "/",
+    ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"],
+    useHttps: false,
+    language: "en",
+    locale: "en-IN",
+    logLevel: ["INFO", "LOG", "WARN", "ERROR"],
+    timeFormat: 24,
+    units: "metric",
+
+    modules: [
+        { module: "alert" },
+        { module: "updatenotification", position: "top_bar" },
+        { module: "clock", position: "top_left" },
+        {
+            module: "calendar",
+            header: "India Holidays",
+            position: "top_left",
+            config: {
+                calendars: [
+                    {
+                        fetchInterval: 7 * 24 * 60 * 60 * 1000,
+                        symbol: "calendar-check",
+                        url: "https://calendar.google.com/calendar/ical/en.indian%23holiday%40group.v.calendar.google.com/public/basic.ics"
+                    }
+                ]
+            }
+        },
+        {
+            module: "weather",
+            position: "top_right",
+            config: { weatherProvider: "openmeteo", type: "current", lat: 28.6380, lon: 77.0710 }
+        },
+        {
+            module: "weather",
+            position: "top_right",
+            header: "Weather Forecast",
+            config: { weatherProvider: "openmeteo", type: "forecast", lat: 28.6380, lon: 77.0710 }
+        },
+        {
+            module: "newsfeed",
+            position: "bottom_bar",
+            config: {
+                feeds: [
+                    { title: "Times of India - Top Stories", url: "https://timesofindia.indiatimes.com/rssfeedstopstories.cms" },
+                    { title: "NDTV - Latest News", url: "https://feeds.feedburner.com/ndtvnews-top-stories" }
+                ],
+                showSourceTitle: true,
+                showPublishDate: true,
+                broadcastNewsFeeds: true,
+                broadcastNewsUpdates: true
+            }
+        }
+    ]
+};
+
+if (typeof module !== "undefined") { module.exports = config; }
+
+```
+
+### Start in normal mode
+
+```
+npm run start
+```
+
+### Start in server-only mode (headless)
+
+```
+npm run start:serveronly
+```
+
+### Start MagicMirror on Boot (PM2)
+
+```
+sudo npm install -g pm2
+pm2 start ~/magic-mirror/MagicMirror/serveronly
+pm2 save
+pm2 startup
+```
