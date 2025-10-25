@@ -11,43 +11,34 @@
  </a>
 </p>
 
-**MagicMirror²** is an open source modular smart mirror platform. With a growing list of installable modules, the **MagicMirror²** allows you to convert your hallway or bathroom mirror into your personal assistant. **MagicMirror²** is built by the creator of [the original MagicMirror](https://michaelteeuw.nl/tagged/magicmirror) with the incredible help of a [growing community of contributors](https://github.com/MagicMirrorOrg/MagicMirror/graphs/contributors).
+**MagicMirror²** is an open source modular smart mirror platform. With a growing list of installable modules, **MagicMirror²** allows you to turn your Raspberry Pi-powered mirror into a personal assistant, displaying news, weather, calendar events, and more. **MagicMirror²** is built by the creator of [the original MagicMirror](https://michaelteeuw.nl/tagged/magicmirror) with the help of a [growing community of contributors](https://github.com/MagicMirrorOrg/MagicMirror/graphs/contributors).
 
-MagicMirror² focuses on a modular plugin system and uses [Electron](https://www.electronjs.org/) as an application wrapper. So no more web server or browser installs necessary!
+MagicMirror² focuses on a modular plugin system and runs on **Raspberry Pi** using [Electron](https://www.electronjs.org/) as an application wrapper. No web server or browser installation is necessary—just boot your Pi and start your smart mirror!
 
-## Documentation
+## Raspberry Pi Documentation
 
-For the full documentation including **[installation instructions](https://docs.magicmirror.builders/getting-started/installation.html)**, please visit our dedicated documentation website: [https://docs.magicmirror.builders](https://docs.magicmirror.builders).
+For full installation and setup instructions on Raspberry Pi, including **hardware setup**, **OS configuration**, and **module installation**, visit our dedicated documentation site: [https://docs.magicmirror.builders/getting-started/installation.html](https://docs.magicmirror.builders/getting-started/installation.html).
 
-## Links
+### Quick Links
 
-- Website: [https://magicmirror.builders](https://magicmirror.builders)
+- Official Website: [https://magicmirror.builders](https://magicmirror.builders)
 - Documentation: [https://docs.magicmirror.builders](https://docs.magicmirror.builders)
 - Forum: [https://forum.magicmirror.builders](https://forum.magicmirror.builders)
-  - Technical discussions: <https://forum.magicmirror.builders/category/11/core-system>
+  - Technical discussions (Raspberry Pi category): <https://forum.magicmirror.builders/category/11/core-system>
 - Discord: [https://discord.gg/J5BAtvx](https://discord.gg/J5BAtvx)
 - Blog: [https://michaelteeuw.nl/tagged/magicmirror](https://michaelteeuw.nl/tagged/magicmirror)
 - Donations: [https://magicmirror.builders/#donate](https://magicmirror.builders/#donate)
 
 ## Contributing Guidelines
 
-Contributions of all kinds are welcome, not only in the form of code but also with regards to
+Contributions are welcome in all forms, not just code! Help us improve MagicMirror² on Raspberry Pi with:
 
-- bug reports
-- documentation
-- translations
+- Bug reports
+- Documentation improvements
+- Translations
 
-For the full contribution guidelines, check out: [https://docs.magicmirror.builders/about/contributing.html](https://docs.magicmirror.builders/about/contributing.html)
+For full contributing guidelines, visit: [https://docs.magicmirror.builders/about/contributing.html](https://docs.magicmirror.builders/about/contributing.html)
 
-## Enjoying MagicMirror? Consider a donation!
+## Support Raspberry Pi MagicMirror²
 
-MagicMirror² is Open Source and free. That doesn't mean we don't need any money.
-
-Please consider a donation to help us cover the ongoing costs like webservers and email services.
-If we receive enough donations we might even be able to free up some working hours and spend some extra time improving the MagicMirror² core.
-
-To donate, please follow [this](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G5D8E9MR5DTD2&source=url) link.
-
-<p style="text-align: center">
-  <a href="https://forum.magicmirror.builders/topic/728/magicmirror-is-voted-number-1-in-the-magpi-top-50"><img src="https://magicmirror.builders/img/magpi-best-watermark-custom.png" width="150" alt="MagPi Top 50"></a>
-</p>
+MagicMirror² is Open Source and free, but running and maintaining it requires resources. Donations help cover costs like server hosting, development time, and ongoing improvements. Consider donating if you enjoy your Raspberry Pi-powered smart mirror!
