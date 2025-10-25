@@ -1,4 +1,4 @@
-# ![MagicMirror²: The open source modular smart mirror platform.](.github/header.png)
+# ![MagicMirror²: The open source modular smart mirror platform.](main_screen.png)
 
 <p style="text-align: center">
   <a href="https://choosealicense.com/licenses/mit">
