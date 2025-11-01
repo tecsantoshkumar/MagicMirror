@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: #010d18;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 30px 40px;
+  position: relative;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* LEFT COLUMN */
+.left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-header {
+  font-size: 18px;
+  font-weight: 400;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.time-display {
+  font-size: 120px;
+  font-weight: 100;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 40px;
+}
+
+.time-seconds {
+  font-size: 50px;
+  vertical-align: super;
+  color: #666;
+}
+
+.holidays-section {
+  margin-top: 20px;
+}
+
+.section-header {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.holiday-list {
+  list-style: none;
+}
+
+.holiday-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 17px;
+  color: #ccc;
+}
+
+.holiday-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #666;
+  border-radius: 3px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.holiday-checkbox::after {
+  content: '✓';
+  position: absolute;
+  top: -3px;
+  left: 2px;
+  color: #666;
+  font-size: 14px;
+}
+
+.holiday-name {
+  flex: 1;
+}
+
+.holiday-date {
+  color: #666;
+  font-size: 15px;
+}
+
+/* RIGHT COLUMN */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.location {
+  font-size: 13px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.current-weather {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.weather-icon {
+  font-size: 60px;
+  line-height: 1;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.current-time-small {
+  font-size: 16px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.temperature {
+  font-size: 72px;
+  font-weight: 100;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.feels-like {
+  font-size: 14px;
+  color: #999;
+}
+
+.forecast-header {
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 20px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333;
+  width: 100%;
+}
+
+.forecast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forecast-day {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.forecast-name {
+  width: 80px;
+  text-align: right;
+  color: #ccc;
+}
+
+.forecast-icon {
+  font-size: 24px;
+  width: 30px;
+  text-align: center;
+}
+
+.forecast-temps {
+  color: #ccc;
+  min-width: 80px;
+}
+
+.forecast-temp-low {
+  color: #666;
+}
+
+/* NEWS TICKER */
+.news-ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px 0;
+  overflow: hidden;
+  border-top: 1px solid #222;
+}
+
+.news-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 40s linear infinite;
+  padding-left: 100%;
+}
+
+.news-source {
+  color: #666;
+  margin-right: 20px;
+}
+
+.news-text {
+  color: #ccc;
+  font-size: 15px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .right-column {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .time-display {
+    font-size: 80px;
+  }
+}
